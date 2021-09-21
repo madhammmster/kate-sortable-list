@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="toolbar">
+    <span>Sortable list</span>
+
+    <span class="example-spacer"></span>
+    
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="sortAlphabetically()">Sort alphabetically</button>
+        </mat-menu>
+    </button>
+</mat-toolbar>
+
+<div>
+    <div class="example-list" cdkDropList (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let post of posts" cdkDrag>{{post.title}}</div>
+    </div>
+</div>
